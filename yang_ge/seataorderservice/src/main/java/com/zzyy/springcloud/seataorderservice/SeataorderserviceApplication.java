@@ -7,12 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-public class SeataorderserviceApplication
-{
+@EnableFeignClients(basePackages = "com.zzyy.springcloud")
+public class SeataorderserviceApplication {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SpringApplication.run(SeataorderserviceApplication.class, args);
     }
 

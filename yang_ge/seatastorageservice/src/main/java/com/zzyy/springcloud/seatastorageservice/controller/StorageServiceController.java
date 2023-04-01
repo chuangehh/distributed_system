@@ -11,24 +11,26 @@ import com.zzyy.springcloud.seatastorageservice.service.StorageService;
 import com.zzyy.springcloud.seatastorageservice.vo.StorageModel;
 
 @RestController
-public class StorageServiceController implements StorageWebApi
-{
-	@Autowired
-	private StorageService service;
+public class StorageServiceController implements StorageWebApi {
+    @Autowired
+    private StorageService service;
 
-	@RequestMapping("/saveStorage")
-	public String saveStorage(@RequestBody StorageDTO dto)
-	{
-		StorageModel sm = new StorageModel();
-		
-		sm.setUuid(dto.getUuid());
-		sm.setProductId(dto.getProductId());
-		sm.setNum(dto.getNum());
+    @RequestMapping("/saveStorage")
+    public String saveStorage(@RequestBody StorageDTO dto) {
+        StorageModel sm = new StorageModel();
 
-		service.saveStorage(sm);
-		
-		return "now save storage==="+sm;
-	}
+        sm.setUuid(dto.getUuid());
+        sm.setProductId(dto.getProductId());
+        sm.setNum(dto.getNum());
+
+        if ("666".equals(dto.getProductId())) {
+            int i = 10 / 0;
+        }
+
+        service.saveStorage(sm);
+
+        return "now save storage===" + sm;
+    }
 }
 
 

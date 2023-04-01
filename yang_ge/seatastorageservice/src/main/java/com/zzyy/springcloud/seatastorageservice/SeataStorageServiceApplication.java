@@ -7,13 +7,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-public class SeatastorageserviceApplication
-{
+@EnableFeignClients(basePackages = "com.zzyy.springcloud")
+public class SeataStorageServiceApplication {
 
-    public static void main(String[] args)
-    {
-        SpringApplication.run(SeatastorageserviceApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(SeataStorageServiceApplication.class, args);
     }
 
 }
