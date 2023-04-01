@@ -1,0 +1,34 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: orderService
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+seata:
+  enabled: true
+  application-id: orderService
+  tx-service-group: my_test_tx_group
+  # seata客户端的配置，去注册中心找
+  config:
+    type: nacos
+    nacos:
+      #namespace: seata
+      serverAddr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      username: "nacos"
+      password: "nacos"
+  # seata服务在哪里？去配置中心找
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      #namespace: dev
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      username: "nacos"
+      password: "nacos"
