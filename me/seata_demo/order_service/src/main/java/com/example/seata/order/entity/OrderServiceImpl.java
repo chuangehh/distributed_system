@@ -33,7 +33,12 @@ public class OrderServiceImpl implements OrderService {
         dto.setProductId(sm.getUuid());
         dto.setNum(new Random().nextInt(5) + 1);
 
-        api.saveStorage(dto);
+        try {
+            api.saveStorage(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
 
         //3 回滚测试判断
         if (sm.getTotalMoney() == 4444) {
